@@ -5,14 +5,16 @@
         <div class="form-group">
             <label>Voter Name</label>
             <!-- <input type="text" [(ngModel)]="voterName" placeholder="Enter Voter Name"> -->
+            <!-- TODO - find why  "Can't bind to 'ngModel' since it isn't a known property of 'input'."" even with  FormsModule imported-->
         </div>
         <div class="form-group">
             <label>Candidate Name</label>
             <!-- <input type="text" [(ngModel)]="candidateName" placeholder="Enter Candidate Name"> -->
+            <!-- TODO - find why  "Can't bind to 'ngModel' since it isn't a known property of 'input'."" even with  FormsModule imported-->
         </div>
             <button type="button" class="btn btn-success" (click)="addVoter()">Add Voter</button>
             <button type="button" class="btn btn-success" (click)="addCandidate()">Add Candidate</button>
-            <button type="submit" class="btn btn-primary mt-4" (click)="vote()">Vote!</button>
+            <button type="submit" class="btn btn-danger" (click)="vote()">Vote!</button>
         </form>
     </div>
     <div>
