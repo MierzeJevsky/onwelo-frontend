@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { VoteComponent } from './vote/vote.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    VoteComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

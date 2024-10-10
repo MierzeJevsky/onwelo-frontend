@@ -1,0 +1,39 @@
+<div class="container mt-4" >
+    <div class="vote">
+        <h1>Vote Here</h1>
+        <form>
+        <div class="form-group">
+            <label>Voter Name</label>
+            <input type="text" [(ngModel)]="voterName" class="form-control" id="voterNameField" placeholder="Enter Voter Name">
+        </div>
+        <div class="form-group">
+            <label>Candidate Name</label>
+            <!-- <input type="text" [(ngModel)]="candidateName" class="form-control" id="candidateNameField" placeholder="Enter Candidate Name"> -->
+        </div>
+            <button type="submit" class="btn btn-primary mt-4" (click)="voteButton()">Vote!</button>
+        </form>
+    </div>
+    <div>
+        <div class="container mt-4">
+            <h1>Voters Table</h1>
+            <table class="table">
+            <thead>
+                <!-- <h1 *ngIf="!isResultLoaded">Loading.................</h1> -->
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Voted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let Voter of Voters">
+                    <th scope="row">{{Voter.name}}</th>
+                    <td>{{Voter.Voted}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" (click)="vote()">Add voter</button>
+                        <button type="button" class="btn btn-danger" (click)="vote()">Add Candidate</button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
