@@ -3,14 +3,15 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Person } from './person';
 import { PersonEnum } from './personEnum';
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
   selector: 'vote-component',
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './vote.component.html',
-  styleUrl: './vote.component.css'
+  styleUrls: [
+    './vote.component.css'
+  ]
 })
 export class VoteComponent {
   
