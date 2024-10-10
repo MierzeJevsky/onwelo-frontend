@@ -27,6 +27,7 @@ export class VoteComponent {
   ){
     this.fetchAllPeople();
     this.extractVotersAndCandidates();
+    this.refreshTables();
   }
   
   extractVotersAndCandidates() {
@@ -36,7 +37,7 @@ export class VoteComponent {
 
   fetchAllPeople() {
     this.http.get(`${this.apiServerUrl}/vote/get_all`)
-    .subscribe((resultData: any)=>
+    .subscribe((resultData: any) =>
     {
       console.log(resultData);
       this.people = resultData;
@@ -57,5 +58,9 @@ export class VoteComponent {
     .set('candidateName', this.candidateName);
     
     return this.http.post<Person>(`${this.apiServerUrl}/candidate/add`, params);
+  }
+
+  refreshTables() {
+    // TODO
   }
 }
