@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { env } from './env/conf';
 import { Person } from './person';
 import { PersonEnum } from './personEnum';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
   selector: 'vote-component',
@@ -14,7 +14,7 @@ import { PersonEnum } from './personEnum';
 })
 export class VoteComponent {
   
-  private readonly apiServerUrl = 'https://localhost:8080';
+  private readonly apiServerUrl = 'http://localhost:8080';
   public people: Person[] | undefined ;
   public voters: Person[] | undefined;
   public candidates: Person[] | undefined;
@@ -34,7 +34,7 @@ export class VoteComponent {
   }
 
   fetchAllPeople() {
-    this.http.get("${this.apiServerUrl}/vote/get_all")
+    this.http.get(`${this.apiServerUrl}/vote/get_all`)
     .subscribe((resultData: any)=>
     {
       console.log(resultData);
@@ -42,12 +42,12 @@ export class VoteComponent {
     });
   }
 
-  addVoter(name: string) {
-    this.http.post<Person>('${this.apiServerUrl}/voter/add', name);
+  addVoter() {
+    this.http.post<Person>(`${this.apiServerUrl}/voter/add`, this.voterName);
   }
 
-  addCandidate(name: string) {
-    this.http.post<Person>('${this.apiServerUrl}/candidate/add', name);
+  addCandidate() {
+    this.http.post<Person>(`${this.apiServerUrl}/candidate/add`, this.candidateName);
   }
 
   vote(){
@@ -55,10 +55,6 @@ export class VoteComponent {
     .set('voterName', this.voterName)
     .set('candidateName', this.candidateName);
     
-    return this.http.post<Person>('${this.apiServerUrl}/candidate/add', params);
-  }
-
-  voteButton() {
-    //TODO
+    return this.http.post<Person>(`${this.apiServerUrl}/candidate/add`, params);
   }
 }

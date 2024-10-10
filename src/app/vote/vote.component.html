@@ -4,36 +4,53 @@
         <form>
         <div class="form-group">
             <label>Voter Name</label>
-            <input type="text" [(ngModel)]="voterName" class="form-control" id="voterNameField" placeholder="Enter Voter Name">
+            <!-- <input type="text" [(ngModel)]="voterName" placeholder="Enter Voter Name"> -->
         </div>
         <div class="form-group">
             <label>Candidate Name</label>
-            <!-- <input type="text" [(ngModel)]="candidateName" class="form-control" id="candidateNameField" placeholder="Enter Candidate Name"> -->
+            <!-- <input type="text" [(ngModel)]="candidateName" placeholder="Enter Candidate Name"> -->
         </div>
-            <button type="submit" class="btn btn-primary mt-4" (click)="voteButton()">Vote!</button>
+            <button type="button" class="btn btn-success" (click)="addVoter()">Add Voter</button>
+            <button type="button" class="btn btn-success" (click)="addCandidate()">Add Candidate</button>
+            <button type="submit" class="btn btn-primary mt-4" (click)="vote()">Vote!</button>
         </form>
     </div>
     <div>
         <div class="container mt-4">
             <h1>Voters Table</h1>
             <table class="table">
-            <thead>
-                <!-- <h1 *ngIf="!isResultLoaded">Loading.................</h1> -->
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Voted</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr *ngFor="let Voter of Voters">
-                    <th scope="row">{{Voter.name}}</th>
-                    <td>{{Voter.Voted}}</td>
-                    <td>
-                        <button type="button" class="btn btn-success" (click)="vote()">Add voter</button>
-                        <button type="button" class="btn btn-danger" (click)="vote()">Add Candidate</button>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Voted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let voter of voters">
+                        <th scope="row">{{voter.name}}</th>
+                        <td>{{voter.voted}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="container mt-4">
+            <h1>Candidates Table</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let candidate of candidates">
+                        <th scope="row">{{candidate.name}}</th>
+                        <td>{{candidate.votes}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
