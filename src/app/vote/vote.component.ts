@@ -16,7 +16,7 @@ import { PersonEnum } from './personEnum';
 export class VoteComponent {
   
   private readonly apiServerUrl = 'http://localhost:8080';
-  public people: Person[] | undefined ;
+  public people: Person[] = [] ;
   public voters: Person[] | undefined;
   public candidates: Person[] | undefined;
   public voterName : string = 'Adam';
@@ -30,8 +30,8 @@ export class VoteComponent {
   }
   
   extractVotersAndCandidates() {
-    this.voters = this.people?.filter((person) => person.personEnum === PersonEnum.VOTER);
-    this.candidates = this.people?.filter((person) => person.personEnum === PersonEnum.VOTER);
+    this.voters = [...this.people].filter((person) => person.personEnum === PersonEnum.VOTER);
+    this.candidates = [...this.people].filter((person) => person.personEnum === PersonEnum.VOTER);
   }
 
   fetchAllPeople() {
